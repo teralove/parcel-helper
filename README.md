@@ -8,7 +8,6 @@ Quick way to manage a ton of parcels and old messages in your inbox.
 
 ## Chat Commands
 * !GetMail
-* !DeleteMail
-* !DelMail
+* !DeleteMail or !DelMail
 
 Commands are not case-sensitive, they can be all lower-case (!getmail), upper (!GETMAIL), mixed (!GetMail), whatever (!gEtmAiL).
