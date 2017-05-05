@@ -1,4 +1,6 @@
-/* vers 1.0.0 */
+/* vers 1.1 */
+
+const format = require('./format.js');
 
 module.exports = function ParcelHelper(dispatch) {
 
@@ -14,24 +16,33 @@ module.exports = function ParcelHelper(dispatch) {
 	let messageIds = [];
 
 	/* 
-		Chat
+		Chat hooks
 	*/
     const chatHook = event => {		
-		if(event.message.toLowerCase().includes('!getmail')) {
-			messageIds = [];
-			state = PreparingParcels;			
-			checkMail(0);
+		let command = format.stripTags(event.message).split(' ');
+		
+		if (['!getmail'].includes(command[0].toLowerCase())) {
+			startProcedure(PreparingParcels);
 			return false;
 		} 
-		else if (event.message.toLowerCase().includes('!deletemail') || (event.message.toLowerCase().includes('!delmail'))) {
-			messageIds = [];
-			state = PreparingDeletion;
-			checkMail(0);
+		else if (['!deletemail', '!delmail'].includes(command[0].toLowerCase())) {
+			startProcedure(PreparingDeletion)
 			return false;
 		}
     }
     dispatch.hook('C_CHAT', 1, chatHook)
     dispatch.hook('C_WHISPER', 1, chatHook)
+	
+	// slash support, thanks to wuav for snippet
+	try {
+		const Slash = require('slash')
+		const slash = new Slash(dispatch)
+		slash.on('getmail', args => startProcedure(PreparingParcels))
+		slash.on('deletemail', args => startProcedure(PreparingDeletion))
+		slash.on('delmail', args => startProcedure(PreparingDeletion))
+	} catch (e) {
+		// do nothing because slash is optional
+	}
 	
     function systemMsg(msg) {
         dispatch.toClient('S_CHAT', 1, {
@@ -51,6 +62,13 @@ module.exports = function ParcelHelper(dispatch) {
 		Dispatching C_LIST_PARCEL will trigger the server to send S_LIST_PARCEL_EX, with this we can get analyze every message
 		in the inbox and store the corresponding message id.
 	*/
+	
+	function startProcedure(startState) {
+		messageIds = [];
+		state = startState;
+		checkMail(0);
+	}
+	
 	function checkMail(pageIndex) {
 		dispatch.toServer('C_LIST_PARCEL', 2, {
 			unk1: 0,
