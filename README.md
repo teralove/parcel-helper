@@ -15,9 +15,10 @@ Commands are not case-sensitive, they can be all lower-case (!getmail), upper (!
 
 
 ## Known Issues
-* Claiming all parcels when the mail window is already open might cause the procedure to halt, closing the mail window will trigger the procedure to continue. Workaround is to make sure mail window is closed before calling !getmail.
+* Claiming parcels when the mailbox window is open might cause the procedure to halt mid-way. Closing the mailbox window will trigger the procedure to continue. Workaround is to make sure mailbox window is closed before calling !getmail.
 
 
 ## Changelog 
 ### 1.1.0
-* [+] Added slash support
+* [+] Added [slash](https://github.com/baldera-mods/slash) support
+
