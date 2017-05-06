@@ -15,7 +15,7 @@ Commands are not case-sensitive, they can be all lower-case (!getmail), upper (!
 
 
 ## Known Issues
-* Claiming parcels when the mailbox window is open might cause the procedure to halt mid-way. Closing the mailbox window will trigger the procedure to continue. Workaround is to make sure mailbox window is closed before calling !getmail.
+* Claiming parcels when the mailbox is open might cause the procedure to halt mid-way. Closing the mailbox will trigger the procedure to continue. Workaround is to make sure the mailbox window is closed before calling !getmail.
 
 
 ## Changelog 
