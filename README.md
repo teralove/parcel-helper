@@ -1,6 +1,6 @@
 # Parcel Helper
 
-Quick way to manage a ton of parcels and old messages in your inbox.
+Quick way to manage a ton of parcels and old messages in your mailbox.
 
 ## Features:
 * Instantly accepts all parcels on every page.
@@ -8,8 +8,8 @@ Quick way to manage a ton of parcels and old messages in your inbox.
 
 
 ## Chat Commands
-* !GetMail
-* !DeleteMail or !DelMail
+* **!GetMail** - Claim parcels
+* **!DeleteMail** or **!DelMail** - Delete read messages
 
 Commands are not case-sensitive, they can be all lower-case (!getmail), upper (!GETMAIL), whatever (!gEtMaiL)
 
