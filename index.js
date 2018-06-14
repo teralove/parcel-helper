@@ -168,7 +168,7 @@ module.exports = function ParcelHelper(dispatch) {
         }
     }
 
-    dispatch.hook('S_PARCEL_READ_RECV_STATUS', (event) => {
+    dispatch.hook('S_PARCEL_READ_RECV_STATUS', 2, (event) => {
         if (state == ClaimingParcels ) {
             if (queuedParcel != 0 && queuedParcel == messageIds[messageIds.length-1].id) {
                 queuedParcel = 0;

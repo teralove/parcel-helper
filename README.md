@@ -10,6 +10,8 @@ tera-proxy module that quickly manages a ton of parcels and old messages in your
 ## Changelog
 <details>
 
+    1.21
+    - Fix: hook version is required
     1.20
     - Code aesthetics
     - Updated for guardian patch
