@@ -1,0 +1,18 @@
+{
+  "files": {
+    "index.js": "33186b416b5fe63cabd25ed92092c4d9fa351bd19a4a90c6564c3254bee37532",
+    "module.json": "b2dd6257290c3587ab1a8429cc5628194e3d9bc5aaf7c5425ae077d05fb1667d",
+    "README.MD": "5aa6e8b8d10ad56e31b7dd50bb5815243cb82a366fcd705662847c6e0919ef11"
+  },
+  "defs": {
+    "C_LIST_PARCEL": 2,
+    "S_LIST_PARCEL_EX": 1,
+    "C_DELETE_PARCEL": 2,
+    "C_REQUEST_CONTRACT": 1,
+    "S_REPLY_REQUEST_CONTRACT": 1,
+    "C_SHOW_PARCEL_MESSAGE": 1,
+    "S_PARCEL_READ_RECV_STATUS": 2,
+    "C_RECV_PARCEL": 1,
+    "S_RECV_PARCEL": 2
+  }
+}

@@ -11,6 +11,7 @@ tera-proxy module that quickly manages a ton of parcels and old messages in your
 <details>
 
     1.21
+    - New: Added Caali auto-update
     - Fix: hook version is required
     1.20
     - Code aesthetics
