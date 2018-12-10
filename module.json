@@ -1,4 +1,11 @@
 {
+    "disableAutoUpdate": false,
+    "name": "parcel-helper",
+    "author": "teralove",
+    "description": "Quickly manage parcels and old messages in your mailbox.",
+    "options": {
+        "niceName": "Parcel Helper"
+    },
     "servers": ["https://raw.githubusercontent.com/teralove/parcel-helper/master/"],
     "supportUrl": "https://github.com/teralove/parcel-helper/issues"
 }

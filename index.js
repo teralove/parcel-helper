@@ -1,21 +1,5 @@
-/*
-OPCodes Required
-- C_LIST_PARCEL
-- S_LIST_PARCEL_EX
-- C_DELETE_PARCEL
-- C_REQUEST_CONTRACT
-- S_REPLY_REQUEST_CONTRACT
-- C_SHOW_PARCEL_MESSAGE
-- S_PARCEL_READ_RECV_STATUS
-- C_RECV_PARCEL
-- S_RECV_PARCEL
-*/
-const Command = require('command');
-
 module.exports = function ParcelHelper(dispatch) {
-        
-    const command = Command(dispatch);
-    
+
     /* 
         States 
     */
@@ -30,15 +14,11 @@ module.exports = function ParcelHelper(dispatch) {
     /* 
         Chat hooks
     */
-    command.add('getmail', (arg1) => {
+    dispatch.command.add('getmail', () => {
         startProcedure(PreparingParcels);
     });
     
-    command.add('deletemail', (arg1) => {
-        startProcedure(PreparingDeletion)
-    });
-    
-    command.add('delmail', (arg1) => {
+    dispatch.command.add(['deletemail', 'delmail'], () => {
         startProcedure(PreparingDeletion)
     });
     
@@ -86,7 +66,7 @@ module.exports = function ParcelHelper(dispatch) {
                         });
                     }
                     else {
-                        command.message('(parcel-helper) No messages to delete');
+                        dispatch.command.message('No messages to delete');
                     }
                     state = Idle;
                 
@@ -111,7 +91,7 @@ module.exports = function ParcelHelper(dispatch) {
                         requestContract();
                     }
                     else {
-                        command.message('(parcel-helper) No parcels to claim');
+                        dispatch.command.message('No parcels to claim');
                         state = Idle;
                     }
                 }
